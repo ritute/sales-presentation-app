@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "0e5dfe5516c93cbdaf2a",
-    "url": "/sales-presentation-app/static/js/main.531b4ea1.chunk.js"
+    "revision": "06a2ff58f04e15d66081",
+    "url": "/sales-presentation-app/static/js/main.0600ecda.chunk.js"
   },
   {
     "revision": "2a9072a0780dbbb50379",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/sales-presentation-app/static/media/empty-folder.39e6ac47.png"
   },
   {
-    "revision": "7e81bc0bdf4aecd8ba916a22bfa3913b",
+    "revision": "dacab81c7216ad245ca99e186abc3f21",
     "url": "/sales-presentation-app/index.html"
   }
 ];
