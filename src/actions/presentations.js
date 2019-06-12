@@ -1,5 +1,4 @@
 import { createActions } from 'redux-actions';
-import shortid from 'shortid';
 
 import api from '../services/api';
 import { removeAssetFromExclude } from './assetFilters';
@@ -119,9 +118,7 @@ export const fetchPresentation = (id) => {
 };
 
 export const createPresentation = (title) => {
-  const id = shortid.generate();
   const newPresentation = {
-    id,
     title,
     selectedAssets: []
   };
@@ -129,9 +126,9 @@ export const createPresentation = (title) => {
   return dispatch => {
     dispatch(createPresentationBegin());
     return api.presentations.create(newPresentation)
-      .then(res => {
-        dispatch(createPresentationSuccess(res.data));
-        dispatch(setCurrentPresentationId(id));
+      .then(({ data }) => {
+        dispatch(createPresentationSuccess(data));
+        dispatch(setCurrentPresentationId(data.id));
       })
       .catch(error => dispatch(createPresentationFailure(ERROR_MESSAGE)));
   };

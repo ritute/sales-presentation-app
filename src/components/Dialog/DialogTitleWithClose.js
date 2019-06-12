@@ -20,7 +20,10 @@ const styles = theme => ({
 
 const DialogTitleWithClose = ({ children, classes, onClose }) => (
   <MuiDialogTitle disableTypography className={classes.root}>
-    <Typography variant="h6">{children}</Typography>
+    {children
+      ? <Typography variant="h6">{children}</Typography>
+      : <Typography variant="h6">&nbsp;</Typography>
+    }
     {onClose ? (
       <IconButton aria-label="Close" className={classes.closeButton} onClick={onClose}>
         <CloseIcon />

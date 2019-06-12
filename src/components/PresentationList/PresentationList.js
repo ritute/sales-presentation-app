@@ -15,7 +15,7 @@ import {
   setCurrentPresentationId,
   deletePresentation
 } from '../../actions/presentations';
-import { fetchAssets } from '../../actions/assets';
+import { fetchAssetsIfNeeded } from '../../actions/assets';
 import { showDialog } from '../../actions/dialog';
 import { dialogs } from '../Dialog/DialogRoot';
 import PresentationCardWithActionOverlay from './PresentationCardWithActionOverlay';
@@ -47,7 +47,7 @@ class PresentationList extends Component {
 
   componentDidMount() {
     trackPromise(this.props.fetchPresentationList(), SPINNER_AREA);
-    trackPromise(this.props.fetchAssets(), SPINNER_AREA);
+    trackPromise(this.props.fetchAssetsIfNeeded(), SPINNER_AREA);
   }
 
   handleAdd = () => {
@@ -173,7 +173,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = {
   fetchPresentationList,
-  fetchAssets,
+  fetchAssetsIfNeeded,
   setCurrentPresentationId,
   showDialog,
   deletePresentation

@@ -15,7 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Truncate from 'react-truncate';
 
-import { fetchAssets } from '../../actions/assets';
+import { fetchAssetsIfNeeded } from '../../actions/assets';
 import { excludeAssets, filterAssetCategory } from '../../actions/assetFilters';
 import getVisibleAssets from '../../selectors/assets';
 import {
@@ -56,7 +56,7 @@ class AssetLibrary extends Component {
   };
 
   componentDidMount() {
-    trackPromise(this.props.fetchAssets(), SPINNER_AREA);
+    trackPromise(this.props.fetchAssetsIfNeeded(), SPINNER_AREA);
     this.props.excludeAssets([]);
     this.props.filterAssetCategory(resourceCategories.images);
   }
@@ -177,7 +177,7 @@ const mapStateToProps = ({ assets, assetFilters }) => ({
 });
 
 const mapDispatchToProps = {
-  fetchAssets,
+  fetchAssetsIfNeeded,
   excludeAssets,
   filterAssetCategory
 };

@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import { createActions } from 'redux-actions';
 import axios from 'axios';
 
@@ -17,7 +18,7 @@ export const {
 // Fetch all images, videos, PDF assets
 // PDFs are uploaded to Cloudinary as image types
 // https://cloudinary.com/documentation/image_transformations#delivering_content_from_pdf_files
-export const fetchAssets = () => {
+const fetchAssets = () => {
   // Cloudinary JSON response is cached at CDN for an hour
   const URL_PREFIX = `https://res.cloudinary.com/${Config.cloudName}`;
   const URL_SUFFIX = `list/${Config.tag}.json`;
@@ -50,3 +51,18 @@ export const fetchAssets = () => {
       .catch(error => dispatch(fetchAssetsFailure(ERROR_MESSAGE)));
   };
 }
+
+const shouldFetchAssets = (state) => {
+  const assets = state.assets;
+  return !assets.loading && isEmpty(assets.assetsById);
+};
+
+export const fetchAssetsIfNeeded = () => {
+  return (dispatch, getState) => {
+    if (shouldFetchAssets(getState())) {
+      return dispatch(fetchAssets());
+    } else {
+      return Promise.resolve();
+    }
+  };
+};

@@ -8,7 +8,7 @@ import { trackPromise} from 'react-promise-tracker';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import { fetchAssets } from '../../actions/assets';
+import { fetchAssetsIfNeeded } from '../../actions/assets';
 import { addAssetToExclude } from '../../actions/assetFilters';
 import {
   addAssetToPresentation,
@@ -46,7 +46,7 @@ const SPINNER_AREA = 'presentation-assets-area';
 
 class PresentationAssets extends Component {
   componentDidMount() {
-    trackPromise(this.props.fetchAssets(), SPINNER_AREA);
+    trackPromise(this.props.fetchAssetsIfNeeded(), SPINNER_AREA);
   }
 
   onDragEnd = ({ draggableId, source, destination, type}) => {
@@ -158,7 +158,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = {
-  fetchAssets,
+  fetchAssetsIfNeeded,
   addAssetToPresentation,
   reorderAssetInPresentation,
   addAssetToExclude
