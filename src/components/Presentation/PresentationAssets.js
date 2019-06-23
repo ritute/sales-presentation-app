@@ -40,6 +40,9 @@ const styles = theme => ({
     minHeight: 0,
     overflow: 'auto',
   },
+  title: {
+    fontSize: '1.15rem',
+  },
 });
 
 const SPINNER_AREA = 'presentation-assets-area';
