@@ -1,3 +1,24 @@
+# Sales Presentation App
+
+* Create simple, quick slideshows for sales presentations.
+* Created with React, Redux, Material UI, and Cloudinary (for media assets).
+* *Note*: Changes are not persistent upon app reload (using local memory for demo purposes).
+
+## Features
+* Create new slideshow presentation containing images / videos / pdfs
+* Drag & drop assets to presentation to create slides
+* Preview presentation slideshow
+* View asset library (fetched from Cloudinary)
+
+## Screenshots
+
+![Dashboard](screenshots/screenshot-dashboard.jpg)
+![Dashboard Hover](screenshots/screenshot-dashboard-overlay.jpg)
+![Edit Presentation](screenshots/screenshot-edit-existing-presentation.jpg)
+![Preview Presentation](screenshots/screenshot-preview-presentation.jpg)
+![New Presentation](screenshots/screenshot-new-presentation.jpg)
+![Asset Library](screenshots/screenshot-asset-library.jpg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
